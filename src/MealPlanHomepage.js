@@ -1,4 +1,5 @@
 import React from "react";
+import "./MealPlanHomepage.css";
 
 export default function MealPlanHomepage() {
   return (
