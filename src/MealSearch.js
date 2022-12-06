@@ -8,7 +8,6 @@ export default function MealSearch() {
   function showRecipes(response) {
     console.log(response.data);
     console.log(response.data.results[0]);
-    console.log(response.data.results[0].id);
   }
 
   function handleSubmit(event) {
