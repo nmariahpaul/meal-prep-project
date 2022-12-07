@@ -1,13 +1,15 @@
 import React, { useState } from "react";
+
 import axios from "axios";
 import "./MealSearch.css";
+import DisplayRecipes from "./DisplayRecipes";
 
 export default function MealSearch() {
   const [keyword, setKeyword] = useState("");
+  const [recipes, setRecipes] = useState(null);
 
   function showRecipes(response) {
-    console.log(response.data);
-    console.log(response.data.results[0]);
+    setRecipes(response.data.results);
   }
 
   function handleSubmit(event) {
@@ -33,6 +35,7 @@ export default function MealSearch() {
         />
         <input type="submit" value="Go" className="w-100" />
       </form>
+      <DisplayRecipes recipes={recipes} keyword={keyword} />
     </div>
   );
 }
