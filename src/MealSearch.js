@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 
-import axios from "axios";
 import "./MealSearch.css";
 import DisplayRecipes from "./DisplayRecipes";
+
+import axios from "axios";
 
 export default function MealSearch() {
   const [keyword, setKeyword] = useState("");

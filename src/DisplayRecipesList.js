@@ -1,15 +1,21 @@
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
+import ShowRecipeInstructions from "./ShowRecipeInstructions";
 
 export default function DisplayRecipesList(props) {
+  const [recipeInstructions, setRecipeInstructions] = useState(null);
+
   function showRecipesInstructions(response) {
-    console.log(response);
+    console.log(response.data[0].steps);
+    setRecipeInstructions(response.data[0].steps);
+    return <ShowRecipeInstructions recipeInstructions={recipeInstructions} />;
   }
 
-  const apiKey = "a295971ad814d7190621709ac68be0d";
-
+  const apiKey = "aa295971ad814d7190621709ac68be0d";
   const recipeUrl = `https://api.spoonacular.com/recipes/${props.recipesId}/analyzedInstructions?apiKey=${apiKey}`;
-  axios.get(recipeUrl).then(showRecipesInstructions);
+  axios
+    .get(recipeUrl, { headers: { Authorization: `Bearer ${apiKey}` } })
+    .then(showRecipesInstructions);
 
   return (
     <div className="DisplayRecipesList">

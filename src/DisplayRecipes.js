@@ -7,7 +7,7 @@ export default function DisplayRecipes(props) {
     return (
       <div className="DisplayRecipes">
         <h2>Showing recipes with "{props.keyword}"</h2>
-        {props.recipes.map(function(recipes, index) {
+        {props.recipes.map(function (recipes, index) {
           console.log(recipes.id);
           return (
             <div key={index}>
