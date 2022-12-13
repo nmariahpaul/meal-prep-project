@@ -12,7 +12,7 @@ export default function DisplayRecipesList(props) {
   }
 
   const apiKey = "aa295971ad814d7190621709ac68be0d";
-  const recipeUrl = `https://api.spoonacular.com/recipes/${props.recipesId}/analyzedInstructions?apiKey=${apiKey}`;
+  const recipeUrl = `https://api.spoonacular.com/recipes/${props.recipesId}/analyzedInstructions?apiKey=${apiKey}&number=5`;
   axios
     .get(recipeUrl, { headers: { Authorization: `Bearer ${apiKey}` } })
     .then(showRecipesInstructions);
@@ -21,7 +21,16 @@ export default function DisplayRecipesList(props) {
     <div className="DisplayRecipesList">
       <div className="row">
         <div className="col-6">
-          <h4>{props.recipes.title}</h4>
+          <h4>
+            <a
+              href={recipeUrl}
+              target="_blank"
+              rel="noreferrer"
+              onClick={showRecipesInstructions}
+            >
+              {props.recipes.title}
+            </a>
+          </h4>
         </div>
         <div className="col-6">
           <a

@@ -17,7 +17,7 @@ export default function MealSearch() {
     event.preventDefault();
 
     const apiKey = "aa295971ad814d7190621709ac68be0d";
-    const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${keyword}`;
+    const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${keyword}&number=5`;
 
     axios.get(apiUrl).then(showRecipes);
   }
